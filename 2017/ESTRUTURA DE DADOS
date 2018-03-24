@@ -1,0 +1,39 @@
+ESTRUTURA DE DADOS
+
+-vector: acesso o(1)
+		adição o(1)
+		remoção o(n)
+	diferença para array: array aloca a memoria quando vc declara(estaticamente), enquanto o vector usa alocação dinamica.
+	exemplo: vector<int> v;
+	função q existe: v.push_back(), v.clear()
+
+
+-pilha: stack<int> s;
+-fila: queue<int> q;
+adicionar elemento: s.push(valor) ou q.push(valor)
+na pilha: s.top() pra ver o de cima
+na fila: q.front() pra ver o da frente
+para tirar: s.pop() ou q.pop()
+para ver se está vazio: q.empty() ou s.empty() (booleano)
+
+
+-fila de prioridade: priority queue
+padrao: primeiro elemento é o maior. todo pai é maior q seus filhos. é uma arvore binaria(cada nó com 2 filhos)
+implementar: use um vetor! cada elemento n aponta para 2n e 2n+1
+adição: o(log n)
+remoção o(log n) remove o maior de todos e troca ele com o menor lá de baixo. aí vai trocando esse menor de lugar com seu maior filho até balancear a arvore de novo
+
+declaração: priority-queue <tipo> pq;
+pq.push()
+pq.pop() tira o de cima (maior)
+pq.top() vê o maior
+se quiser criar uma priority-queue do menor pro maior (sua prioridade, o topo, é o menor)
+entao declare assim: priority-queue <tipo,vector<tipo>,greatered>  
+o vector diz q vai armazenar sua fila num vector, e greatered é a classe de comparação (greater)
+
+
+-lista encadeada: 
+1 - 2 - 3 - 4 - 5
+faça dois vetores: um de prox e um de antes. na posição i coloque prox[i]= elemento à direita de i e antes[i]=elemento à esquerda de i.
+exemplo: prox[1]=2 antes[1]=0 (significa q nao tem nada antes)
+         prox[5]=N , vc define esse N antes e aí sabe q quando chegar nele é pq a lista acabou.
