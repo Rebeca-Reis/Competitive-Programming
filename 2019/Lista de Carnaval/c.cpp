@@ -54,3 +54,7 @@ int main(){
 	if(!can(n,m)) return cout << -1 << endl, 0;   //nao consegue fazer em n dias, entao eh impossivel
 	cout << binary_search(1,n,m) << endl;
 }
+
+//busca binaria no numero de dias, com a funçao can vendo se é possivel com aquele numero de dias. Verifica isso com guloso:
+//pega o maior numero para o primeiro dia e o segundo maior para o segundo dia. O 3o maior para o segundo copo do 1o dia
+//o 4o maior para o segundo copo do segundo dia.. e assim por diante

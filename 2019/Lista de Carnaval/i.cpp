@@ -16,29 +16,27 @@ const int N=1e5+5;
 const int MOD=1e9+7;
 const int INF=0x3f3f3f3f;
 
-ll t,x,mid,d;
+int t,x,mid,d,ok;
 
 bool can(ll n, ll ang){
 	d=ang*n;
-	if(d%180!=0) return true;
+	if(d%180!=0) return false;
 	d/=180;
 	if(d <= n-2) return true;
 	return false;
-}
-
-ll binary_search(ll l, ll r, ll ang){
-	mid=(l+r)/2;
-	if(l==r) return l;
-	if(can(mid,ang)) return binary_search(l,mid,ang);
-	return binary_search(mid+1,r,ang);
 }
 
 int main(){
 	cin >> t;
 	for(int i=0;i<t;i++){
 		cin >> x;
-		ll ans= binary_search((ll)3,(ll)998244353,x);
-		if(!can(ans,x)) cout << -1 << endl;   //impossivel
-		else cout << ans << endl;
+		for(int j=3;j<=360;j++){
+			if(can(j,x)){
+				cout << j << endl;
+				ok=1;
+				break;
+			}
+		}
+		if(!ok) cout << -1 << endl;   //impossivel
 	}
 }
